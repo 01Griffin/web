@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-align: left;
+        }
+        input, #fileInput {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .preview-container {
+            margin-bottom: 15px;
+        }
+        .preview-container img {
+            max-width: 100%;
+            max-height: 200px;
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/add_user" method="POST" enctype="multipart/form-data">
+        <h1>Add a User</h1>
+        
+        <!-- Contenedor para la vista previa de la imagen -->
+        <div class="preview-container" id="imagePreview">
+            <!-- La imagen seleccionada se mostrará aquí -->
+            {% if filename %}
+                <img src="{{ url_for('uploaded_file', filename=filename) }}">
+            {% endif %}
+        </div>
+        
+        <label for="fileInput">Upload Profile Picture:</label>
+        <input type="file" id="fileInput" name="fileInput" accept="image/*">
+        
+        <label for="name">Username:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <button type="submit">Register</button>
+        <a href="/login">Go login</a>
+    </form>
+</body>
+</html>

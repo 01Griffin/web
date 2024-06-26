@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* Para centrar el contenedor horizontalmente */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(5, 5, 5);
+            text-align: center;
+            position: relative; /* Añadido para establecer un contexto de posición para el contenedor absoluto */
+        }
+        
+        .container {
+            background: rgb(25, 25, 25);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border-right: 1px solid rgb(200, 200, 200);
+            border-bottom: 1px solid rgb(200, 200, 200);
+            position: absolute; /* Posicionamiento absoluto */
+            left: 20px; /* Distancia desde el borde izquierdo de la pantalla */
+            top: 50%; /* Ajustar según el diseño vertical deseado */
+            transform: translateY(-50%); /* Centrar verticalmente */
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: rgb(255,255,255);
+        }
+        .image {
+            width: 90%;
+            border-radius: 50%;
+            height: 250px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: rgb(255,255,255);
+
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido</h1>
+        <img class="image" src="data:image/png;base64, {{ image }}" alt="Profile Picture">
+        <p>Usuario: {{ username }}</p>
+        <p>Noticia del día</p>
+        <a href="/">Cerrar sesión</a>
+    </div>
+</body>
+</html>
