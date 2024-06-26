@@ -1,5 +1,4 @@
 flask
 flask_session
 firebase_admin
-base64
 gunicorn
